@@ -1,43 +1,49 @@
-## README
-En este repositorio se encuentran los códigos utilizados en la práctica, además del informe realizado.
-A continuación una breve descripción de cada código.
+# README
 
-#TestingFlorence2.ipynb
+En este repositorio se encuentran los códigos utilizados en la práctica, además del informe realizado. A continuación, se proporciona una breve descripción de cada archivo incluido:
 
-Es un código creado para realizar inferencias dentro del modelo Florence2 donde
-se ponen a prueba todas las tareas indicadas tanto en el modelo base, Large y pesos FineTuned
-Las tareas se definen en la input "<task>" están divididas en dos grupos, existen
-las tareas con salida en texto y las que entrega una región de la imagen. 
-En caso de ser necesario un prompt de texto adicional a la tarea de entrada
-como suele ser en tareas que requieren un contexto o definir una región este debe ser definido en
-"<text>".
+## Archivos
 
-Las tareas con salida en texto son:
+### **`TestingFlorence2.ipynb`**
 
-<CAPTION>: Descripción de la imagen de entrada.
-<DETAILED_CAPTION>: Una descripción más detallada de la imagen de entrada.
-<MORE_DETAILED_CAPTION>: Una descripción aún mas detallada de la imagen de entrada.
-<REGION_TO_DESCRIPTION>: Una descripción de una determinada región de la imagen de entrada.
+Este notebook está diseñado para realizar inferencias utilizando el modelo Florence2. Permite poner a prueba todas las tareas indicadas en los diferentes modelos disponibles: **Base**, **Large** y con pesos **Fine-Tuned**.  
 
-Las tareas con salida en región son:
+Las tareas se especifican en el parámetro de entrada `"<task>"` y se dividen en dos categorías:  
 
-$<OD>$: Detección de objetos.
-$<REGION_PROPOSAL>$: Propone una región de interés en la imagen.
-<DENSE_REGION_CAPTION>: Realiza detección de objetos con mayor detalle en sus etiquetas.
-<CAPTION_TO_PHRASE_GROUNDING>: Detección de objetos aterrizado por contexto.
-<REFERRING_EXPRESSION_SEGMENTATION>: Segmentación semántica.
-<REGION_TO_SEGMENTATION>: Se realiza segmentación de una región definida.
-<OCR_WITH_REGION>: Detectar, identificar y etiquetar el texto dentro de una imagen.
-<OPEN_VOCABULARY_DETECTION>: Detección de objetos enfocado en vocabulario.
+1. **Tareas con salida en texto**  
+   - `<CAPTION>`: Genera una descripción básica de la imagen de entrada.  
+   - `<DETAILED_CAPTION>`: Proporciona una descripción más detallada de la imagen.  
+   - `<MORE_DETAILED_CAPTION>`: Ofrece una descripción aún más detallada de la imagen.  
+   - `<REGION_TO_DESCRIPTION>`: Describe una región específica de la imagen.  
 
-#FineOwnData.ipynb
+2. **Tareas con salida en región**  
+   - `<OD>`: Detección de objetos.  
+   - `<REGION_PROPOSAL>`: Propone una región de interés en la imagen.  
+   - `<DENSE_REGION_CAPTION>`: Detecta objetos con etiquetas más detalladas.  
+   - `<CAPTION_TO_PHRASE_GROUNDING>`: Detección de objetos basada en un contexto textual.  
+   - `<REFERRING_EXPRESSION_SEGMENTATION>`: Realiza segmentación semántica.  
+   - `<REGION_TO_SEGMENTATION>`: Segmenta una región previamente definida.  
+   - `<OCR_WITH_REGION>`: Detecta, identifica y etiqueta texto dentro de una imagen.  
+   - `<OPEN_VOCABULARY_DETECTION>`: Detección de objetos con un vocabulario amplio.  
 
-Es un código creado para realizar el fine-tuning de Florence2 utilizando un dataset
-personalizado, esto es, cargando el dataset y su respectivo jsonl. Donde, mediante LoRa
-se puede hacer una cuantización para la utilización de menos recursos en el entrenamiento.
-Finalmente, guardando los pesos obtenidos en una dirección personalizada por el usuario.
+En las tareas que requieren un contexto adicional o la definición de una región, el prompt de texto debe proporcionarse en el parámetro `"<text>"`.
 
-#jsontojsonl.py
+---
 
-Es un código encargado de realizar la conversión de datos COCO desde una anotación json
-a un formato jsonl comúnmente utilizado en aplicaciones de LLM u VLM.
+### **`FineOwnData.ipynb`**
+
+Este notebook permite realizar el fine-tuning del modelo Florence2 utilizando un dataset personalizado.  
+- **Entrada**: Dataset y archivo de anotaciones en formato JSONL.  
+- **Método**: Se utiliza **LoRa** para realizar cuantización, optimizando el uso de recursos durante el entrenamiento.  
+- **Salida**: Pesos ajustados, que se guardan en una ubicación personalizada definida por el usuario.
+
+---
+
+### **`jsontojsonl.py`**
+
+Script que convierte anotaciones en formato JSON (como las de COCO) al formato JSONL, comúnmente utilizado en aplicaciones de **LLM** y **VLM**.
+
+---
+
+
+
