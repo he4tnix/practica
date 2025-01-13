@@ -21,8 +21,8 @@ Las tareas con salida en texto son:
 
 Las tareas con salida en región son:
 
-<OD>: Detección de objetos.
-<REGION_PROPOSAL>: Propone una región de interés en la imagen.
+$<OD>$: Detección de objetos.
+$<REGION_PROPOSAL>$: Propone una región de interés en la imagen.
 <DENSE_REGION_CAPTION>: Realiza detección de objetos con mayor detalle en sus etiquetas.
 <CAPTION_TO_PHRASE_GROUNDING>: Detección de objetos aterrizado por contexto.
 <REFERRING_EXPRESSION_SEGMENTATION>: Segmentación semántica.
